@@ -1,0 +1,133 @@
+/* 03_quiz_2sol.css */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 목록 점 없애기 */
+li {
+  list-style-type: none;
+}
+
+/* 페이지 전체 폰트, 글자크기, 색깔 */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #444;
+}
+
+/* 머리말 */
+header {
+  width: 1140px;
+  height: 100px;
+  /* 중앙 정렬 */
+  margin: 0 auto;
+  /* 임시 배경색 */
+  /* background-color: red; */
+}
+
+/* 머리말 - 로고(왼쪽) */
+#logo {
+  float: left;
+  /* 마진(축약형) : margin: 상 우 하 좌 */
+  margin: 20px 0 0 20px;
+}
+
+/* 머리말 - 소메뉴(오른쪽) */
+#menus {
+  float: right;
+}
+
+/* 머리말 - 소메뉴(오른쪽) - 소소메뉴(li) */
+#main_menu li {
+  /* 가로 배치 */
+  display: inline-block;
+  /* 마진 - 왼쪽 */
+  margin-left: 80px;
+}
+
+/* 머리말 - 소메뉴(오른쪽) - 소소메뉴#1 */
+#top_menu {
+  text-align: right;
+  margin-top: 20px;
+}
+
+/* 머리말 - 소메뉴(오른쪽) - 소소메뉴#2 */
+#main_menu{
+    margin-top: 20px;
+    font-size: 20px;
+    color: black;
+}
+
+/* 대메뉴 : 큰 로고 이미지 : css b-i */
+#main_img {
+    height: 281px;
+  /* 배경 이미지 넣기 */
+  background-image: url(../img/main_img.png);
+  /* 배경 이미지 반복 X */
+  background-repeat: no-repeat;
+  /* 배경 이미지 크기 */
+  background-size: cover;
+  /* 배경 이미지 위치 */
+  background-position: center;
+  margin-top: 20px;
+}
+
+/* 본문 */
+#contents{
+    width: 1140px;
+    margin: 0 auto;
+}
+
+/* 본문 - 사이드바(왼쪽) */
+#sub_menu{
+    float: left;
+    width: 234px;
+    margin-top: 25px;
+}
+
+/* 본문 - 사이드바(왼쪽) - li */
+#sub_menu li{
+    /* 외곽선 - 점선 */
+    border-bottom: 1px dotted #ccc;
+    padding: 10px;
+}
+
+/* 본문 - 소분문(오른쪽) */
+#main_contents{
+    /* 우정렬 */
+    float: right;
+    width: 880px;
+    margin-top: 25px;
+}
+
+/* 더미 div : float 인식 속성 */
+.clear{
+    clear: both;
+}
+
+/* 꼬리말 */
+#footer_box{
+width: 1140px;
+margin: 0 auto;
+}
+
+footer{
+    height: 150px;
+    background-color: #2c2a29;
+    margin-top: 30px;
+}
+
+/* 꼬리말 - 로고(왼쪽) */
+#footer_logo{
+    float: left;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+/* 꼬리말 - 주소(오른쪽) */
+#address{
+    float: right;
+    margin-top: 50px;
+    margin-left: 30px;
+}

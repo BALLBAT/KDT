@@ -1,0 +1,17 @@
+/* 07_div_span.css */
+.div-hello{
+    width: 300px;
+    background-color: aqua;
+}
+.div-hello2{
+    width: 300px;
+    background-color: blue;
+}
+.span-hello{
+    width: 300px;
+    background-color: violet;
+}
+.span-hello2{
+    width: 300px;
+    background-color: green;
+}

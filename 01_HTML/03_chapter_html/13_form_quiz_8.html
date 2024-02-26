@@ -1,0 +1,41 @@
+<!--  13_form_quiz_8.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 힌트 : tr (행) , td (열)-->
+<!-- 힌트 : <td colspan="개수">글자 </td>-->
+        <table border="1">
+        <tr>
+            <!-- 1행 2열(병합) -->
+            <td colspan="2">글쓰기 게시판</td>
+        </tr>
+        <!-- 2행 2열 -->
+        <td><label for="">제목</label></td>
+        <td><input type="text"></td>
+        <!-- 3행 2열 -->
+        <tr>
+            <td><label for="">내용</label></td>
+            <td><textarea cols="35" rows="10"></textarea></td>
+        </tr>
+        <!-- 4행 2열 -->
+        <tr>
+            <td><label for="">파일첨부</label></td>
+            <td><input type="file"></td>
+        </tr>
+        <!-- 5행 2열 -->
+        <tr>
+        <td></td>
+        <td>5M 이하의 파일만 첨부 가능합니다.</td>
+        </tr>
+        <!-- 6행 2열 -->
+        <tr>
+            <td colspan="2"><input type="button" name="확인" id="확인" value="확인"></td>
+        </tr>
+        </table>
+</body>
+</html>

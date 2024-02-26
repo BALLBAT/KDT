@@ -1,0 +1,22 @@
+/* 04_quiz_2.css */
+#title1{
+    color: purple;
+}
+
+#weather{
+    color: red;
+    font-weight: bold;
+}
+
+#title2{
+    color: green;
+}
+
+#location{
+    font-weight: bold;
+}
+
+#notice{
+    color: blue;
+    font-weight: bold;
+}

@@ -1,0 +1,43 @@
+/* 01_oneTrueLayout_basic.css */
+/* 여백 초기화 */
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/* 가상의 페이지 */
+#container{
+    /* 가로 */
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 머리말 */
+#header{
+    height: 120px;
+    background-color: gray;
+}
+
+/* 사이드바 (왼쪽 정렬) */
+#sidebar{
+    float: left;
+    width: 300px;
+    height: 600px;
+    background-color: aqua;
+}
+
+/* 본문 (오른쪽 정렬) */
+#content{
+    float: right;
+    width: 900px;
+    height: 600px;
+    background-color: beige;
+}
+
+/* 꼬리말 */
+#footer{
+    /* float 인식 속성 */
+    clear: both;
+    background-color: burlywood;
+    height: 100px;
+}

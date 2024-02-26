@@ -1,0 +1,14 @@
+/* 12_quiz_10.css */
+/* 태그선택자 : html태그 { 속성:값; } */
+body{
+    background-color: yellow;
+}
+
+#button{
+    color: white;
+    background-color: blue;
+    width: 120px;
+    height: 25px;
+    text-align: center;
+    padding: 8px;
+}

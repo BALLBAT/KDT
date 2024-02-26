@@ -1,0 +1,20 @@
+/* 14_quiz_8.css */
+h3{
+    color: blue;
+    font-weight: bold;
+    font-family: 맑은고딕;
+}
+p{
+    line-height: 150%;
+    font-size: 14px;
+}
+li{
+    list-style-type: square;
+    font-size: 16px;
+}
+body{
+    font-family: 돋움;
+}
+span{
+    font-weight: bold;
+}

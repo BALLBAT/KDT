@@ -1,0 +1,13 @@
+/* 21_google_form.css */
+/* TODO: 웹폰트 : 어떤 기기로 접속해도 같은 글꼴을 보여줄 때 사용함 */
+/* TODO: import : css 파일에서 글꼴 등을 가져오기 할 때 사용하는 명령어 */
+/* 사용법: css 글꼴, css 파일 등을 가져오는 방법 
+    @import url(css파일경로 or 인터넷 주소) */
+
+/* 구글 웹폰트 import : Nanum Pen Script 웹폰트 */
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
+
+h1 {
+  font-family: "Nanum Pen Script", cursive;
+  font-size: 60px;
+}

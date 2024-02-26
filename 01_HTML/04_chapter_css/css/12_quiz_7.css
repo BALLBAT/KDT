@@ -1,0 +1,23 @@
+/* quiz_7.css */
+/* 복습 : id선택자 = #속성명{} */
+/* 복습 : class선택자 = .속성명{} */
+p{
+    /* 글자 세로 간격(행간) */
+    line-height: 300%;
+}
+
+h3{
+    font-weight: bolder;
+}
+#fly{
+    /* 글자색 */
+    color: red;
+    /* 굵은 글씨 */
+    font-weight: bold;
+}
+.blue{
+    /* 글자색 */
+    color: blue;
+    /* 굵은 글씨 */
+    font-weight: bold;
+}

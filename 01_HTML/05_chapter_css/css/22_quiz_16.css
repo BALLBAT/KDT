@@ -1,0 +1,12 @@
+/* 22_quiz_16.css */
+  @import url('https://fonts.googleapis.com/css2?family=Moirai+One&family=Nanum+Pen+Script&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Moirai+One&family=Nanum+Pen+Script&display=swap');
+
+  h1{
+    font-family: "Moirai One", cursive;
+    text-align-last: center;
+  }
+  p{
+    font-family: "Diphylleia", serif;
+    text-align: center;
+  }

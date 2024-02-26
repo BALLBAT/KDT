@@ -1,0 +1,13 @@
+/* 19_img_assign.css */
+div{
+    width: 640px;
+    border: 2px solid red;
+}
+
+img{
+    /* 크기 설정 중에 auto = 현재 컨텐츠에 맞추어 자동으로 크기 조정 */
+    /* TODO: % : 자식 속성에 %를 두면 부모 요소를 기준으로 크기를 물려 받음 */
+    /* TODO: 부모 크기를 벗어나지 않도록 조정하는 크기 속성 */
+    max-width: 120%;
+    height: auto;
+}

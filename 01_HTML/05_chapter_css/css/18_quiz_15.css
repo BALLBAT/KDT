@@ -1,0 +1,35 @@
+/* 18_quiz_15.css */
+table,
+td,
+th {
+  border: 1px solid #cccccc;
+}
+
+table {
+  border: 1px solid #cccccc;
+  border-collapse: collapse;
+  width: 610px;
+}
+
+#table_title {
+  border: 1px solid #cccccc;
+  height: 10px;
+  background-color: #eeeeee;
+}
+
+tr {
+  text-align: center;
+}
+#col1,
+#col2,
+#col3,
+#col4 {
+  width: 90px;
+}
+
+.train {
+  color: #f1477b;
+  background-color: #fbdbf2;
+  text-decoration: underline;
+  font-weight: bold;
+}

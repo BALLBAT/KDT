@@ -1,0 +1,28 @@
+<!-- 01_jq_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrap">
+      <!-- TODO: target="_blank" => 새창/새탭으로 페이지 이동 -->
+      <p><a href="http://www.naver.com" target="_blank">네이버</a></p>
+    </div>
+
+    <!-- TODO: jquery 연결(링크) : CDN : 인터넷 주소로 다른 라이브러리 사용 방법 -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+
+    <script>
+        $(function(){
+            // jquery 코딩
+            // 복습 : css 속성 선택자 : 태그[속성]
+            // $("#wrap a[target]").css("color", "red");
+            // 참고 : #2
+            $("#wrap a[target]").css({color : "red"})
+        })
+    </script>
+  </body>
+</html>

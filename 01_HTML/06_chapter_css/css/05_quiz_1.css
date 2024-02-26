@@ -1,0 +1,14 @@
+/* 05_quiz_1.css */
+ul{
+    background-color: beige;
+    width: 640px;
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 1px solid #cccccc;
+}
+
+li{
+    display: inline-block;
+    margin: 10px;
+}

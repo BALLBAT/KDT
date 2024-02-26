@@ -1,0 +1,28 @@
+/* 09_quiz_4.css */
+#logo{
+    float: left;
+}
+
+#menu{
+    list-style-type: none;
+    float: right;
+    font-size: 14px;        /* 풀이 따라 */
+    margin-top: 20px;       /* 풀이 따라 */
+}
+
+#menu li{
+    display: inline-block;
+}
+
+/* TODO: float 적용된 태그 인식 */
+#main_image{
+    clear: both;
+    padding-top: 20px;
+}
+
+/* li 메뉴 점 없애기 > 수목원 로그를 왼쪽 정렬 */
+/* 소메뉴 오른쪽 정렬 > 하고 결과 확인 > 강사님 화면엔 사진이 내려가있음 */
+/* 소메뉴의 글자크기 설정 > 위쪽 마진 20px */
+/* 소메뉴(li) 가로배치 > 해상도 키웠을 때 메인이미지 위치 ㅄ */
+/* 메인이미지 위치가 제대로 가있지 못한 이유는? */
+/* 메인이미지가 플로트 태그를 인식을 못하기 떄문에 */

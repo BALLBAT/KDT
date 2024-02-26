@@ -1,0 +1,50 @@
+/* 04_quiz_3_structure_body.css */
+.contents{
+width: 1000px;
+margin: 50px auto;
+/* background-color: yellowgreen; */
+}
+
+/* section별 마진 - 위 */
+main > section{
+    margin-top: 60px;
+}
+
+/* 본문 - 글 */
+.detail p{
+    color: #222;
+    /* 마진 아래 */
+    margin-bottom: 30px;
+}
+
+.detail > img{
+    float: left;
+    margin-right: 50px;
+    border-radius: 20px;
+}
+
+main h2{
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+/* 본문 - div(상세설명 글) */
+main div{
+    margin-top: 20px;
+}
+
+/* 본문 - 상세일정(h3) */
+main h3{
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* main - 상세일정(.schedule) */
+.schedule h3{
+    font-size: 1.2em;
+}
+
+/* main - 상세일정 li */
+.schedule ul li{
+    margin-bottom: 20px;
+}

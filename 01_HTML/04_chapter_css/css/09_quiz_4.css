@@ -1,0 +1,22 @@
+/* 09_quiz_4.css */
+h2{
+    color: black;
+    font-size: 25px;
+}
+
+li{
+    /* 현재경로 : ./ */
+    /* TODO: 상위경로 : ../ */
+    /* TODO: url() css함수 : 이미지를 찾아주는 css함수 */
+    /* TODO: list-style-image: url("이미지 경로"); */
+    list-style-image: url(/04_chapter_css/image/arrow.gif);
+}
+
+span{
+    font-weight: bold;
+}
+
+p{
+    color: green;
+    text-decoration: underline;
+}

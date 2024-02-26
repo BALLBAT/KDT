@@ -1,0 +1,26 @@
+/* 04_quiz_3_structure_footer.css */
+/* 꼬리말 */
+footer{
+    width: 1200px;
+    height: 100px;
+    margin-top: 50px;
+}
+
+/* 꼬리말 - bottomMenu - ul -li */
+#bottomMenu ul li{
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 5px 20px;
+}
+
+/* 꼬리말 - bottomMenu - ul */
+#bottomMenu ul{
+    margin-top: 15px;
+    margin-left: 60px;
+}
+
+/* 꼬리말 : a태그(글자) */
+#bottomMenu ul li a {
+    font-size: 15px;
+    color: #666;
+}

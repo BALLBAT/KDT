@@ -1,0 +1,30 @@
+/* 08_quiz_3.css */
+/* 여백 초기화 */
+/* 초기화 : 속성의 값을 특정값으로 지정하는 것 : 0, "빈칸" */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#image{
+    float: left;
+    border: 1px solid red;
+}
+
+#desc{
+    margin-left: 30px;
+    float: left;
+    border: 1px solid red;
+    width: 350px;
+}
+
+#menu{
+    float: right;
+    border: 1px solid red;
+    list-style-type: none;
+    text-align: left;
+}
+
+#menu li{
+    text-align: left;
+}

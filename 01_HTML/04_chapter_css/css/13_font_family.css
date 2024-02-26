@@ -1,0 +1,17 @@
+/* 복습 : class선택자 = .속성명{} */
+.font_arial{
+    /* TODO: 폰트, 예) 맑은 고딕체, Roman체 등 */
+    /* TODO: 사용법 : font-family: 1차폰트, 2차폰트, (sans-)serif */
+    font-family: Arial, Helvetica, sans-serif;
+}
+.font_roman{
+    font-family: 'Times New Roman', Times, serif;
+}
+.font_italic{
+    /* 이텔릭체 속성 */
+    font-style: italic;
+    /* 글자 중앙 정렬(only text) */
+    /* text-align: center; */
+    /* text-align: left; */
+    /* text-align: right; */
+}

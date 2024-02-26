@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- TODO: jquery 연결(링크) : CDN : 인터넷 주소로 다른 라이브러리 사용 방법 -->
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+
+    <!-- 연습문제 : h2 태그를 선택해서 디자인 적용하세요
+                     background-color 속성 -> skyblue
+                     border 속성 -> 2px dashed black
+     -->
+    <!-- 선택자 : $("h2") -->
+    <h1>제이쿼리</h1>
+    <h2>선택자</h2>
+    <h3>직접선택자</h3>
+
+    <script>
+        $(function(){
+            $("h2").css("background-color", "skyblue")
+                   .css("border", "2px dashed black");
+        })
+    </script>
+</body>
+</html>

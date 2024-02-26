@@ -1,0 +1,33 @@
+/* 13_quiz_11.css */
+/* 전체 선택자 : * { 속성:값; } */
+/* 웹 브라우저 마다 기본 마진/패딩 값이 약간 다름(크롬, 파폭, 엣지 등) */
+/* TODO: 마진/패딩 초기화 */
+*{
+    padding: 0;
+    margin: 0;
+}
+
+#banner{
+    background-color: lavenderblush;
+    width: 320px;
+    height: 180px;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+p{
+    margin-top: 20px;
+}
+
+#button{
+    color: white;
+    background-color: #e1285a;
+    width: 100px;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 30px;
+}

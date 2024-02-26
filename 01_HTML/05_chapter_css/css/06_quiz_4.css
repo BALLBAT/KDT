@@ -1,0 +1,17 @@
+/* 06_quiz_4.css */
+#title1{
+    border-top: 2px solid black;
+}
+
+#title2{
+border-left-style: solid;
+    border-left-color: magenta;
+}
+
+#title3{
+border: 2px solid skyblue;
+padding: 3px;
+width: 400px;
+/* TODO: 둥근사각형 : border-radius: 크기px; (클수록 원이됨) */
+border-radius: 5px;
+}

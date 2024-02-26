@@ -1,0 +1,10 @@
+/* quiz_9.css */
+body{
+    width: 100%;
+}
+
+.heading{
+    color: white;
+    text-align: center;
+    background-color: black;
+}

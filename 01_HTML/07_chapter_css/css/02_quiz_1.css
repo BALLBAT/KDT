@@ -1,0 +1,77 @@
+/* 02_quiz_1.css */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#page{
+    width: 995px;
+    margin: 0 auto;
+}
+
+header{
+    width: 995px;
+    height: 100px;
+    margin-top: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+#logo{
+    float: left;
+}
+
+#top{
+    float: right;
+    margin-top: 20px;
+}
+
+.clear{
+    clear: both;
+}
+
+nav{
+    width: 995px;
+    margin-bottom: 20px;
+}
+
+nav li{
+    display: inline-block;
+    width: 150px;
+}
+
+footer{
+    width: 995px;
+    height: 100px;
+    border: 1px solid #eee;
+    padding-top: 40px;
+    margin-top: 30px;
+}
+
+aside{
+    float: right;
+    width: 370px;
+}
+
+
+aside li{
+    list-style-type: none;
+}
+
+section{
+    float: left;
+    width: 600px;
+}
+
+section img{
+    width: 100%;
+}
+
+#address{
+float: left;
+margin-left: 30px;
+}
+
+#customer{
+float: right;
+margin-right: 50px;
+}

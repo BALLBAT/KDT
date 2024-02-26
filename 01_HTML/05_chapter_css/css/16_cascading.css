@@ -1,0 +1,26 @@
+/* 16_cascading.css */
+/* css 디자인 우선순위 :  */
+/* TODO: 1) 부모 태그 vs 자식 태그 : 자식 디자인 적용됨 */
+/* TODO: 2) 기본 선택자 : id선택자(최고) > class선택자 > 태그선택자 > 전체선택자(최후) */
+/* TODO: 3) 기본 우선수위 무시하고 원하는 디자인을 최고 우선순위로 만드는 키워드 : !important; */
+/* TODO:    사용법 : 선택자 { 속성:값 !important; } */
+/* id 선택자 : 부모태그 */
+#id-div{
+    color: aqua;
+}
+
+#id-heading{
+    color: coral;
+}
+
+.class-heading{
+    color: green !important;
+}
+
+h1{
+    color: brown;
+}
+
+*{
+    color: black;
+}
