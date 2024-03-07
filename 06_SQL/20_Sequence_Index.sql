@@ -60,3 +60,61 @@ SELECT * FROM DEPT_TEMP;
 
 -- 확정
 COMMIT;
+
+-- 3) 시퀀스 삭제 :
+-- 사용법 : DROP SEQUENCE 시퀀스명;
+DROP SEQUENCE DEPT_TEMP_SEQ;
+
+-- *) 인덱스(Index)
+-- 용도 : 조회 속도 향상을 위해 컬럼에 인덱스를 생성함
+-- 사용 : 컬럼에 인덱스를 지정해서 생성하면 됨
+-- 기본키(PK) 특징 : 유일(중복 금지) + NOT NULL + 자동 인덱스 생성
+
+--  예제 3) 어떤 사이트에서 조회시 이름검색이(ENAME) 많다고 합니다.
+--          그런데 속도가 많이 느리다고 합니다. 인덱스를 생성해주세요
+-- 사용법 : CREATE INDEX 인덱스명 ON 테이블명(컬럼명);
+CREATE INDEX IX_EMPLOYEE_ENAME ON EMPLOYEE(ENAME);
+
+-- 속도 느림 대상 SQL문
+SELECT * FROM EMPLOYEE
+WHERE ENAME LIKE 'SCO%';         -- 조건절(WHERE절 등)에 주로 사용하는 컬럼에 생성
+
+-- 시스템 테이블 : 데이터 사전(DICTIONARY VIEW)
+-- USER_IND_COLUMNS
+-- DBA(관리자)가 많이 사용, 개발자는 참고
+SELECT * FROM USER_IND_COLUMNS
+WHERE TABLE_NAME IN ('EMPLOYEE','DEPARTMENT');
+
+-- 인덱스 삭제하기
+-- 사용법 : DROP INDEX 인덱스명;
+DROP INDEX IX_EMPLOYEE_ENAME;
+
+-- 연습 1) DEPARTMENT 테이블에 DNAME 부서명에 인덱스를 생성하세요
+-- 인덱스명 : IX_DEPARTMENT_DNAME
+CREATE INDEX IX_DEPARTMENT_DNAME ON DEPARTMENT(DNAME);
+
+-- *) 인덱스 생성 기준
+-- 1) WHERE(조건절)에 해당 컬럼이 많이 등장할 경우 인덱스 생성 고려
+-- 2) 테이블에 행 개수가 굉장히 많을 경우 (데이터 건수가 많을 경우)
+--    예) 10만건 이상
+-- 3) 주로 테이블 조인(2개 이상)의 공통 컬럼으로 사용될 경우 인덱스 생성 고려
+
+-- 기타 인덱스 (특수 인덱스) (참고) :
+-- 1) 결합 인덱스 : 여러개의 컬럼을 동시에 인덱스 1개로 생성
+-- 예제) 아래의 SQL문이 자바에서 실행되는데 느리다고 합니다. 개선해주세요
+SELECT * FROM DEPARTMENT
+WHERE DNAME = 'SALES'
+AND LOC = 'NEW YORK';
+
+-- 결합 인덱스 생성
+-- 사용법 : CREATE INDEX 인덱스명 ON 테이블명(컬럼명1, 컬럼명2, ...);
+CREATE INDEX IX_DEPARTMENT_DNAME_LOC ON DEPARTMENT(DNAME, LOC);
+
+-- 2) 함수 인덱스 : SQL 함수 또는 산술식에 인덱스 걸기
+-- 예제) 아래의 SQL문이 자바에서 실행되는데 느리다고 합니다. 개선해주세요
+SELECT * FROM EMPLOYEE
+WHERE SALARY = SALARY * 12;
+
+-- 함수 인덱스 생성
+CREATE INDEX IX_EMPLOYEE_ANNSAL ON EMPLOYEE(SALARY * 12);
+
