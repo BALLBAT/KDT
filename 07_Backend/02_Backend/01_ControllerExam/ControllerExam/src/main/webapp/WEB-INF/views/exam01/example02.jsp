@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: ballbat
-  Date: 2024-03-08
-  Time: 오후 11:43
+  User: GGG
+  Date: 2024-03-11
+  Time: 오후 3:10
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,6 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-    Hello World !!!!!
+<p>${g}</p>
+<p>${g2}</p>
+<p>${g3}</p>
 </body>
 </html>
