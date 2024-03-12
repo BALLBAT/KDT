@@ -61,4 +61,16 @@ public class ParamController {
         model.addAttribute("greeting", "부서명 : "+ dname);
         return "exam02/example01.jsp";
     }
+
+//  연습 2) 숫자로 url 매개변수를 전달해서 화면에 출력해 보세요.
+//         url : /exam02/hello-no
+//         함수 : HelloName3
+//         jsp : exam02/example02.jsp
+//         결과 : 20
+//    url 테스트 : http://localhost:8000/exam02/hello-no?no=20
+    @GetMapping("/hello-no")
+    public String HelloName3(Model model, @RequestParam(defaultValue = "0") int no) {
+        model.addAttribute("greeting", no);
+        return "exam02/example02.jsp";
+    }
 }
