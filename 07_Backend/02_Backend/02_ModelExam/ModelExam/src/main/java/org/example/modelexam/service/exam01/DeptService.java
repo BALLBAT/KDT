@@ -4,6 +4,9 @@ import org.example.modelexam.dao.DeptDao;
 import org.example.modelexam.model.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -54,12 +57,63 @@ public class DeptService {
 
     /**
      * 전체조회
+     *
      * @return : 부서 객체 배열
      */
 
     public List<Dept> findAll() {
 //      DB 전체 조회 : 부서 테이블
         List<Dept> list = deptDao.selectAll();
+        return list;
+    }
+
+    /**
+     * DB 상세조회 : 1건(객체 1개)
+     * @param dno(부서번호)
+     * @return 부서 객체
+     */
+    @GetMapping("/dept")
+    public Dept findById(long dno) {
+//      TODO: DB 상세조회(1건==객체1개) 함수 호출
+//          상세조회 : 기본키로 조회하는 것을 의미
+        Dept dept = deptDao.selectById(dno);
+
+        return dept;
+    }
+
+    /**
+     * 부서 정보 저장 함수
+     * @param dept(새로운 부서 객체)
+     * @return 부서 배열 (새로운 부서 포함된 배열)
+     */
+    public List<Dept> save(Dept dept) {
+//    TODO: (참고 자바로 코딩한다면?)
+//        프론트 전달 값 : dname(부서명), loc(부서위치), dno(부서번호) : 자동생성(DB : 시퀀스)
+//        1) dept 객체의 dno 가 null 이면 자동생성
+//        2) dept 부서 테이블의 전체 건수 구한 후 : 4건(10 ~ 40)
+//           - (4 + 1) * 10 = 50
+//        3) dept 의 setter 함수(속성 수정/저장 함수)
+//           - dept.setDno(50)
+//        4) DB 에 저장
+//           - deptDao.insert(dept);
+
+        List<Dept> list = null;
+        if (dept.getDno() == null) {
+//            TODO: 부서 추가
+//        1) dept 객체의 dno 가 null 이면 자동생성
+//        2) dept 부서 테이블의 전체 건수 구한 후 : 4건(10 ~ 40)
+//            List/ArrayList 배열 크기 함수 : .size()
+            int count = deptDao.selectAll().size();
+//        3) 새로운 번호 : (크기 + 1) * 10
+            int newNum = (count +1) * 10;
+//        4) dept 의 setter 함수(속성 수정/저장 함수)
+            dept.setDno(newNum);
+//    TODO: DB 저장함수 (insert 함수)
+            list = deptDao.insert(dept);
+        } else {
+//            TODO: 부서 수정(update)
+            list = deptDao.update(dept);
+        }
         return list;
     }
 }

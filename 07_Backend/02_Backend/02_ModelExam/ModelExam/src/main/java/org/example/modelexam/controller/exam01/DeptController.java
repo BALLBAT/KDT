@@ -1,12 +1,13 @@
 package org.example.modelexam.controller.exam01;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.modelexam.model.Dept;
 import org.example.modelexam.service.exam01.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -21,12 +22,24 @@ import java.util.List;
  *       @RequestMapping("/공통url")
  *       spring 코딩 : 1) service 함수 정의
  *                    2) controller 에서 service 함수 호출 결과를 jsp 로 전송
+ *            1) 간단 디버깅 : 변수 값 추적
+ *               System.out.println("[디버깅] : "+list);
+ *            2) 실무 : 전용 로깅툴 : log-back 툴 : 성능 빠름
+ *            설치 : log4jdbc.log4j2.properties, logback-spring.xml 파일을
+ *                   resource 폴더에 붙여넣기 : 기본 설치
+ *                   logback-spring.xml : logback 설정 파일
+ *                     => 1) 체크 : 주석 Logger 1줄 패키지명 확인 : org.example.modelexam
+ *            사용법 : 1) @Slf4g : 클래스 위에 붙임
+ *                    2) log.debug("변수명 : " + 변수값);
+ *                    => (참고) (정보 많이 출력) trace > debug > info (정보 작게 출력)
+ *                    => 예) log.trace(), log.debug(), log.info()
  * <p>
  * ===========================================================
  * DATE            AUTHOR             NOTE
  * -----------------------------------------------------------
  * 2024-03-13         GGG          최초 생성
  */
+@Slf4j
 @Controller
 @RequestMapping("/exam01")
 public class DeptController {
@@ -36,6 +49,8 @@ public class DeptController {
 
     /**
      * 전체 조회 함수
+     * http://localhost:8000/공통url/함수url
+     * url : http://localhost:8000/exam01/dept
      * @return : exam01/dept/dept_all.jsp
      */
     @GetMapping("/dept")
@@ -46,6 +61,68 @@ public class DeptController {
 //      TODO: model 에 담아 jsp 로 전달
         model.addAttribute("list", list);
 
+//      1) 간단 디버깅 : 변수 값 추적
+//        System.out.println("[디버깅] : "+list);
+//      2) 실무 : 전용 로깅툴 : log-back 툴 : 성능 빠름
+//      사용법 : 1) @Slf4g : 클래스 위에 붙임
+//              2) log.debug("변수명 : " + 변수값);
+        log.debug("list : "+list);
+
         return "exam01/dept/dept_all.jsp";
     }
+
+//  상세조회 : 기본키(매개변수 : 부서번호(dno))를 웹브라우저 주소창에 입력해서 전달 받기
+//  url 테스트 : http://localhost:8000/exam01/dept/10
+//  jsp : exam01/dept/dept_id.jsp
+//  url : /dept/{dno}
+    @GetMapping("/dept/{dno}")
+    public String getDeptId(@PathVariable long dno,
+                            Model model){
+//      TODO: service 의 상세조회 함수(findById) 호출
+        Dept dept = deptService.findById(dno);
+//      TODO: jsp dept 객체 전송
+        model.addAttribute("dept", dept);
+        return "exam01/dept/dept_id.jsp";
+    }
+
+//  TODO: 부서 추가 페이지 열기 함수 #1
+//    jsp : exam01/dept/add_dept.jsp
+//    url : /dept/addition
+    @GetMapping("/dept/addition")
+    public String addDept() {
+        return "exam01/dept/add_dept.jsp";
+    }
+
+//  TODO: 저장 버튼 클릭시 실행될 함수 #2
+//    jsp : /exam01/dept (강제 페이지 이동 : 전체조회)
+//    url : /exam/dept/add
+//    html : form 방식 : (insert -> post 방식)
+//    어노테이션 : insert -> @PostMapping("/url")
+    @PostMapping("/dept/add")
+    public RedirectView createDept(@ModelAttribute Dept dept){
+//      TODO: DB 저장 함수 실행
+        deptService.save(dept);
+
+//   TODO: 전체 조회 페이지로 강제 이동
+//      RedirectView : 이 클래스가 강제로 페이지 이동을 시켜주는 것
+//      사용법 : new RedirectView("/공통url/함수url")
+        return new RedirectView("/exam01/dept");
+    }
+
+//  TODO: 수정 페이지 열기 함수
+//    => 수정 페이지가 열릴 때
+//    url : dept/edition/{dno}
+//    jsp : exam01/dept/update_dept.jsp
+    @GetMapping("/dept/edition/{dno}")
+    public String editDept(@PathVariable long dno,
+                           Model model) {
+//      TODO: 1) 먼저 상세조회를 1건 함
+        Dept dept = deptService.findById(dno);
+//      TODO: 2) 부서 객체를 jsp 로 전송
+        model.addAttribute("dept", dept);
+
+        return "exam01/dept/update_dept.jsp";
+    }
+
+//  TODO: 수정 버튼 클릭시 실행될 함수
 }

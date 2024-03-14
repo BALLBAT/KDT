@@ -43,6 +43,11 @@
         </c:forEach>
         </tbody>
     </table>
+
+<%--  TODO: 추가버튼 추가 : a href="이동페이지수소" 태그 --%>
+    <div class="text-center">
+        <a href="/exam01/dept/addition" class="btn btn-primary">추가</a>
+    </div>
 </div>
 
 <%-- 꼬리말 --%>

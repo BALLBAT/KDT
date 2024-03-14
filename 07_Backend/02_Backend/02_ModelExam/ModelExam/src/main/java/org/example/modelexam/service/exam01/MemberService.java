@@ -1,9 +1,11 @@
 package org.example.modelexam.service.exam01;
 
 import org.example.modelexam.dao.MemberDao;
+import org.example.modelexam.model.Dept;
 import org.example.modelexam.model.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,4 +40,60 @@ public class MemberService {
         List<Member> list = memberDao.selectAll();
         return list;
     }
+
+//  TODO: 연습 2)
+//    MemberService 클래스를 만들고 findById() 함수를 정의한다.
+//    MemberController 클래스를 만들어서 getMemberId() 함수를 정의하고,
+//    샘플데이터 뷰로(jsp : member_id.jsp) 전송해 보세요.
+//    url : /member/{eno}
+//    jsp : exam01/member/member_id.jsp
+//    url test : http://localhost:8000/exam01/member/7369
+    @GetMapping("/member")
+    public Member findById(long eno) {
+        Member member = memberDao.selectById(eno);
+        return member;
+    }
+
+//  TODO: 연습 3)
+//    MemberService 클래스를 만들고 save() 함수를 정의한다.
+//    MemberController 클래스를 만들어서 addMember(),
+//    createMember() 함수를 정의
+//    addMember()
+//    - url : /member/addition
+//    - jsp : exam01/member/add_member.jsp
+    /**
+     * 회원 저장 함수
+     * @param member
+     * @return
+     */
+    public List<Member> save(Member member) {
+
+        List<Member> list = null;
+        if (member.getEno() == null) {
+//            TODO: 부서 추가
+//        1) member 객체의 eno 가 null 이면 자동생성
+//        2) member 사원 테이블의 전체 건수 구한 후 :
+//            List/ArrayList 배열 크기 함수 : .size()
+            int count = memberDao.selectAll().size();
+//        3) 새로운 번호 : (크기 + 1) * 10
+            int newNum = (count +1) * 10;
+//        4) member 의 setter 함수(속성 수정/저장 함수)
+            member.setEno(newNum);
+//    TODO: DB 저장함수 (insert 함수)
+            list = memberDao.insert(member);
+        } else {
+//            TODO: 부서 수정(update)
+            list = memberDao.update(member);
+        }
+        return list;
+    }
+
+//  TODO: 연습 5)
+//    MemberService 클래스를 만들고 save() 함수를 정의하고 update 하세요
+//    MemberController 클래스를 만들어서 editMember() 함수를 정의
+//    editMember()
+//    - url : /member/edition/{eno}
+//    - jsp : exam01/member/update_member.jsp
+//    - url test : http://localhost:8000/exam01/member/edition/7369
+
 }
