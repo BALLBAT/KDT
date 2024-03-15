@@ -21,7 +21,9 @@
 <%-- 삭제 delete  -> delete 방식 -> @DeleteMapping --%>
 <%-- 조회 select  -> get 방식    -> @GetMapping --%>
 <div class="container">
-    <form action="" method="post">
+<%--  수정 form  --%>
+    <form action="/exam01/dept/edit/${dno}" method="post">
+
 <%--        TODO: 아래 input(hidden) 사용하면 put 방식으로 전송됨 --%>
         <input type="hidden" name="_method" value="put"/>
 <%--        TODO: 상세조회 값을 input 태그에 출력 : value=값 --%>
@@ -51,6 +53,14 @@
     <div class="mb-3">
         <button type="submit" class="btn btn-warning">수정</button>
     </div>
+    </form>
+
+<%--  삭제 form  --%>
+    <form action="/exam01/dept/delete/${dno}" method="post">
+<%--    delete 방식은 아래 input 태그가 필요함    --%>
+        <input type="hidden" name="_method" value="delete"/>
+<%--    삭제 버튼 추가 : submit    --%>
+        <button type="submit" class="btn btn-danger">삭제</button>
     </form>
 </div>
 <%-- 꼬리말 --%>

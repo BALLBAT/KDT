@@ -19,16 +19,16 @@ import lombok.*;
 @Setter
 @ToString
 @NoArgsConstructor
-public class Board extends BaseTimeEntity {
-    private Integer id;
-    private String title;
-    private String content;
+public class Faq extends BaseTimeEntity {
+    private Integer fno;
+    private String subject;
+    private String text;
 
     @Builder
-    public Board(Integer id, String title, String content) {
+    public Faq(Integer fno, String subject, String text) {
         super();
-        this.id = id;
-        this.title = title;
-        this.content = content;
+        this.fno = fno;
+        this.subject = subject;
+        this.text = text;
     }
 }

@@ -1,6 +1,5 @@
 package org.example.modelexam.dao;
 
-
 import org.example.modelexam.model.Board;
 import org.example.modelexam.testdata.SampleBoard;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +53,10 @@ public class BoardDao {
     public List<Board> insert(Board board) {
 
         List<Board> list = sampleBoard.getList();
+
+        int count = selectAll().size(); // 전체 건수
+        int newId = count + 1;
+        board.setId(newId); // 새로운 번호 저장
 
         list.add(board);
 

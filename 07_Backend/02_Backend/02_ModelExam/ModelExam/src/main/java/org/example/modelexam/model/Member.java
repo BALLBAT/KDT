@@ -18,7 +18,7 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-@NoArgsConstructor // 기본생정자 생성 어노테이션
+@NoArgsConstructor
 public class Member extends BaseTimeEntity {
     private Integer eno;
     private String ename;

@@ -35,7 +35,7 @@
                 <%--            대메뉴 시작 --%>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dept(부서)
+                        Menu
                     </a>
                     <%--                   소메뉴 --%>
                     <ul class="dropdown-menu">
@@ -43,6 +43,17 @@
                         <li><a class="dropdown-item" href="/exam01/member">Member</a></li>
                     </ul>
                 </li>
+                    <%--            대메뉴2 시작 --%>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            종합문제
+                        </a>
+                        <%--                   소메뉴 --%>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/exam01/board">Board</a></li>
+                            <li><a class="dropdown-item" href="/exam01/faq">Faq</a></li>
+                        </ul>
+                    </li>
             </ul>
         </div>
     </div>

@@ -71,14 +71,14 @@ public class MemberService {
         List<Member> list = null;
         if (member.getEno() == null) {
 //            TODO: 부서 추가
-//        1) member 객체의 eno 가 null 이면 자동생성
+//        1) ui(frontend) -> insert (사원번호가 없으면)
 //        2) member 사원 테이블의 전체 건수 구한 후 :
 //            List/ArrayList 배열 크기 함수 : .size()
             int count = memberDao.selectAll().size();
-//        3) 새로운 번호 : (크기 + 1) * 10
-            int newNum = (count +1) * 10;
-//        4) member 의 setter 함수(속성 수정/저장 함수)
-            member.setEno(newNum);
+//        3) 새로운 번호 : 크기 + 8000
+            int newEno = count + 8000;
+//        4) member 의 setter 함수(속성 수정/저장 함수) 새로운 사전 저장
+            member.setEno(newEno);
 //    TODO: DB 저장함수 (insert 함수)
             list = memberDao.insert(member);
         } else {
@@ -96,4 +96,25 @@ public class MemberService {
 //    - jsp : exam01/member/update_member.jsp
 //    - url test : http://localhost:8000/exam01/member/edition/7369
 
+//  TODO: 연습 5)
+//    MemberService 클래스를 만들고 save() 함수를 정의하고 update 하세요
+//    MemberController 클래스를 만들어서 editMember() 함수를 정의
+//    editMember(), updateMember() 정의하세요
+//    - url : /member/edition/{eno}
+//    - jsp : exam01/member/update_member.jsp
+//    - url 테스트 : http://localhost:8000/exam01/member/edition/7369
+//    updateMember()
+//    - url : /member/edit/{eno}
+//    - redirect url : /exam01/member
+    /**
+     * 사원번호(eno) 로 삭제하는 함수
+     * @param eno(사원번호)
+     * @return
+     */
+    public boolean removeById(int eno) {
+//      TODO: DB 삭제 함수 실행
+        int count = memberDao.deleteById(eno);
+
+        return (count > 0)? true : false;
+    }
 }

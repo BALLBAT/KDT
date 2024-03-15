@@ -125,4 +125,31 @@ public class DeptController {
     }
 
 //  TODO: 수정 버튼 클릭시 실행될 함수
+//    => 수정 후 전체 조회 페이지로 강제 이동 :
+//    => 사용법 : new RedirectView("/이동할 url")
+//    => 클래스 == 자료형
+//    => update => put 방식 => @PutMapping("/url")
+//    => sql update ~ where 부서번호 = 20
+//    => url : /dept/edit/{dno}
+    @PutMapping("/dept/edit/{dno}")
+    public RedirectView updateDept(@PathVariable long dno,
+                                   @ModelAttribute Dept dept){
+//      TODO: 수정 함수(서비스) 호출
+//       => save : if (insert) else (update) : dno == null
+//       => 추가든 수정이든 save 사용하면 된다.
+        deptService.save(dept);
+//      TODO: 전체 조회 페이지로 강제 이동 : /exam01/dept
+        return new RedirectView("/exam01/dept");
+    }
+
+//  TODO: sql delete -> delete 방식 -> @DeleteMapping
+//    => sql delete ~ where 조건식 (dno=10)
+//    => url : /dept/delete/{dno}
+    @DeleteMapping("/dept/delete/{dno}")
+    public RedirectView deleteDept(@PathVariable int dno) {
+//        TODO: DB 삭제 함수 실행(서비스)
+        deptService.removeById(dno);
+//        TODO: 삭제 후 전체 조회 페이지로 강제 이동
+        return new RedirectView("/exam01/dept");
+    }
 }

@@ -57,6 +57,5 @@
 </div>
 <%--    꼬리말--%>
 <jsp:include page="../../common/footer.jsp"/>
-
 </body>
 </html>

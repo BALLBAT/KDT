@@ -116,4 +116,16 @@ public class DeptService {
         }
         return list;
     }
+
+    /**
+     * 부서번호(dno) 로 삭제하는 함수
+     * @param dno(부서번호)
+     * @return
+     */
+    public boolean removeById(int dno) {
+//      TODO: DB 삭제 함수 실행
+        int count = deptDao.deleteById(dno);
+
+        return (count > 0)? true : false;
+    }
 }
