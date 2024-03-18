@@ -70,6 +70,8 @@ BoardDao boardDao; // 미리 제작된 DB 조회/수정/삭제/추가 함수가 
 //      게시판 번호가 있으면        : update
         if (board.getId() == null) {
             list = boardDao.insert(board); // 게시판 번호 자동 생성 (시퀀스)
+        } else {
+            list = boardDao.update(board);
         }
         return list;
     }
