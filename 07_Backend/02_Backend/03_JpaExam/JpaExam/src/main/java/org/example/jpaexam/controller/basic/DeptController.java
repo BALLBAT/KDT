@@ -11,10 +11,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * packageName : org.example.jpaexam.controller.basic
@@ -72,8 +74,31 @@ public class DeptController {
 //      블럭 끝 페이지 번호 != 전체 페이지 번호 : 이 경우가 발생할 수 있음
 //      블럭 끝 페이지 번호 = 전체 페이지 번호 (값 보정)
         blockEndPage = (blockEndPage >= pageRes.getTotalPages())?pageRes.getTotalPages()-1:blockEndPage;
+
+//      TODO: blockEndPage < 0 이면 blockEndPage = 0 고정 : blockEndPage 음수이면 jsp 반복문에서 에러발생(버그 수정)
+        blockEndPage = (blockEndPage < 0)? 0 : blockEndPage;
+
         model.addAttribute("endPage", blockEndPage); // 6) 블럭 끝 페이지 번호
 
         return "basic/dept/dept_all.jsp";
     }
+
+//  상세 조회 (테스트용, 생략)
+    @GetMapping("/dept/{dno}")
+    public String getDeptId(@PathVariable int dno, Model model) {
+//      DB 상세 조회 서비스 함수
+        Optional<Dept> optionalDept = deptService.findById(dno);
+//      JSP 객체 전송 : 사용법 : 옵셔널객체.get() : 객체 꺼내기
+        model.addAttribute("dept", optionalDept.get());
+        return "basic/dept/dept_id.jsp";
+    }
+
+//  저장 : 1) 추가(저장) 페이지 열기 함수
+    @GetMapping("/dept/addition")
+    public String addDept() {
+        return "basic/dept/add_dept.jsp";
+    }
+
+//  2) 저장 버튼 클릭시 실행될 함수
+
 }

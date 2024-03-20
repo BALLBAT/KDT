@@ -38,16 +38,25 @@ import javax.naming.InsufficientResourcesException;
 @ToString
 public class Emp extends BaseTimeEntity {
 //  연습 : Emp, EmpRepository, EmpService, EmpController, emp_all.jsp
+
+//  TODO: 함수 전체 조회 : 페이징 없이 : findAll()
+//  대/소문자 바꾸기 단축키 : ctrl + shift + u
 @Id
 @GeneratedValue(strategy = GenerationType.SEQUENCE
         , generator = "SQ_EMP_GENERATOR"
 )
-    private Integer eno;
-    private String ename;
-    private String job;
-    private Integer manager;
-    private String hiredate;
-    private Integer salary;
-    private Integer commission;
-    private Integer dno;
+    private Integer eno; // 사원번호
+    private String ename; // 사원명
+    private String job; // 직급
+    private Integer manager; // 관리자 사원 번호
+    private String hiredate; // 입사일
+    private Integer salary; // 급여
+    private Integer commission; // 커미션
+    private Integer dno; // 부서번호
+
+//  TODO: 연습 2) empRepository 에 findAllByEnameContaining() like 검색 함수 제작
+//    empService 에 findAllByEnameContaining() 함수 제작
+//    empController 의 getEmpAll() 함수에 페이징 처리 로직 추가
+//    emp_all.jsp 페이징 화면 추가(테이블로 출력)
+//    참고 : 부서 참고
 }

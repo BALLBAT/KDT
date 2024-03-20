@@ -17,7 +17,21 @@
 <%-- 본문 --%>
 <div class="container">
     <%--  TODO: 검색어 입력 상자  --%>
-
+        <form class="row g-3 justify-content-center" action="/basic/emp" method="get">
+            <%--    TODO: 검색 input 태그    --%>
+            <div class="col-auto mt-5">
+                <input type="text" class="form-control" id="ename" name="ename" placeholder="사원명 입력">
+                <%--    page(현재 페이지 번호), size(1 페이지당 개수)    --%>
+                <input type="hidden" id="page" name="page" value="0" />
+                <input type="hidden" id="size" name="size" value="3" />
+            </div>
+            <%--    TODO: 검색 button    --%>
+            <div class="col-auto mt-5 mb-3">
+                <button type="submit" class="btn btn-primary">
+                    검색
+                </button>
+            </div>
+        </form>
     <%--        TODO: 테이블 --%>
     <table class="table">
         <thead>

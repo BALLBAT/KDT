@@ -10,13 +10,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * packageName : org.example.jpaexam.service.basic
  * fileName : EmpService
  * author : BALLBAT
  * date : 2024-03-19
- * description :
+ * description : 사원 서비스 : DB JPA CRUD 함수 이용 업무 로직 만드는 곳
  * 요약 :
  * <p>
  * ===========================================================
@@ -26,7 +27,8 @@ import java.util.List;
  */
 @Service
 public class EmpService {
-    //  DB CRUD 클래스 받기 : JPA 제공 함수 사용 가능
+    //  DB CRUD 클래스 받기 : JPA 제공 함수 사용 가능 : DI(의존성 주입)
+//  DI : Dependency Injection
     @Autowired
     EmpRepository empRepository;
 
@@ -40,6 +42,7 @@ public class EmpService {
         return list;
     }
 
+//  전체 조회 + like 검색 함수
     /**
      * like 검색 함수 : 페이징 처리
      * @param ename
@@ -52,5 +55,26 @@ public class EmpService {
         Page<Emp> page
                 = empRepository.findAllByEnameContaining(ename, pageable);
         return page;
+    }
+
+//  TODO: 연습 : EmpService 클래스에서 상세 조회 findbyId()
+//              EmpController 클래스에서 getEmpId()
+//              emp_id.jsp(테스트 목적)
+    public Optional<Emp> findById(int eno) {
+//      JPA 상세 조회 함수 실행
+        Optional<Emp> optionalEmp = empRepository.findById(eno);
+        return optionalEmp;
+    }
+
+//  TODO: 연습 : EmpService 클래스에서 저장/수정 save()
+//               EmpController 클래스에서 addEmp()
+//               add_emp.jsp(테스트목적)
+//               url : /emp/addition
+
+    public Emp save(Emp emp) {
+//      JPA 의 저장 함수 : return 값 : 저장된 객체
+        Emp emp2 = empRepository.save(emp);
+
+        return emp2;
     }
 }
