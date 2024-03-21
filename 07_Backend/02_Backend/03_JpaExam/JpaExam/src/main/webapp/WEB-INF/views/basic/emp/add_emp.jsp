@@ -24,11 +24,36 @@
                 <label for="ename" class="form-label">ename</label>
                 <input type="text" class="form-control" id="ename" name="ename" placeholder="사원명 입력">
             </div>
-            <%--      input 태그 : 부서위치      --%>
+                <%--      input 태그 : 직급      --%>
+                <div class="mb-3">
+                    <label for="job" class="form-label">job</label>
+                    <input type="text" class="form-control" id="job" name="job" placeholder="직급 입력">
+                </div>
+            <%--      input 태그 : 관리자 사원 번호      --%>
             <div class="mb-3">
-                <label for="job" class="form-label">loc</label>
-                <input type="text" class="form-control" id="job" name="job" placeholder="직급 입력">
+                <label for="manager" class="form-label">manager</label>
+                <input type="text" class="form-control" id="manager" name="manager" placeholder="관리자 사원번호 입력">
             </div>
+                <%--      input 태그 : 입사일      --%>
+                <div class="mb-3">
+                    <label for="hiredate" class="form-label">hiredate</label>
+                    <input type="text" class="form-control" id="hiredate" name="hiredate" placeholder="입사일 압력">
+                </div>
+                <%--      input 태그 : 급여      --%>
+                <div class="mb-3">
+                    <label for="salary" class="form-label">salary</label>
+                    <input type="text" class="form-control" id="salary" name="salary" placeholder="급여 입력">
+                </div>
+                <%--      input 태그 : 상여금      --%>
+                <div class="mb-3">
+                    <label for="commission" class="form-label">commission</label>
+                    <input type="text" class="form-control" id="commission" name="commission" placeholder="상여금 입력">
+                </div>
+                <%--      input 태그 : 부서번호      --%>
+                <div class="mb-3">
+                    <label for="dno" class="form-label">dno</label>
+                    <input type="text" class="form-control" id="dno" name="dno" placeholder="부서 번호 입력">
+                </div>
             <%--      저장 버튼      --%>
             <div class="mb-3">
                 <button type="submit" class="btn btn-primary">저장</button>

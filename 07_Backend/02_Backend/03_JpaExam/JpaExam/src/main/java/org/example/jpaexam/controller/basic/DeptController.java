@@ -10,10 +10,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 import java.util.Optional;
@@ -100,5 +98,46 @@ public class DeptController {
     }
 
 //  2) 저장 버튼 클릭시 실행될 함수
+//     insert -> post 방식 -> @PostMapping
+//     저장 -> 전체 조회 페이지 강제 이동(리다이렉트)
+//     변수 1개 전달 -> @PathVariable @RequestParam
+//     객체 1개 전달 -> @ModelAttribute
+    @PostMapping("/dept/add")
+    public RedirectView createDept(@ModelAttribute Dept dept){
+//      DB 저장 서비스 함수
+        deptService.save(dept);
+//      전체 조회 페이지 강제 이동
+        return new RedirectView("/basic/dept");
+    }
 
+//  수정 : 1) 수정 페이지 열기 함수 : 상세 조회
+    @GetMapping("/dept/edition/{dno}")
+    public String editDept(Model model,
+                           @PathVariable int dno){
+//      서비스 상세 조회 함수 호출 : return 값 : Optional 객체
+        Optional<Dept> optionalDept = deptService.findById(dno);
+//      옵셔널 객체에서 결과를 꺼내서 jsp 로 전송
+        model.addAttribute("dept", optionalDept.get());
+        return "/basic/dept/update_dept.jsp";
+    }
+
+//    수정 버튼 클릭시 실행될 함수
+//    update -> put 방식 -> @PutMapping
+    @PutMapping("/dept/edit/{dno}")
+    public RedirectView updateDept(@PathVariable int dno,
+                                   @ModelAttribute Dept dept){
+//      DB 서비스 함수 실행 : save()
+        deptService.save(dept);
+//      전체 조회 페이지로 강제 이동
+        return new RedirectView("/basic/dept");
+    }
+
+//    삭제 함수
+//    delete -> delete 방식 -> @DeleteMapping
+    @DeleteMapping("/dept/delete/{dno}")
+    public RedirectView deleteDept(@PathVariable int dno) {
+//      DB 서비스 삭제 함수 실행
+        deptService.removeById(dno);
+        return new RedirectView("/basic/dept");
+    }
 }

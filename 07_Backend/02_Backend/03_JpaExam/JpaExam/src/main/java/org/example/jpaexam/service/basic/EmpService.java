@@ -77,4 +77,23 @@ public class EmpService {
 
         return emp2;
     }
+
+//   TODO: 연습 : EmpService.java => 삭제함수 removeById()
+//               EmpController.java => deleteEmp()
+//               jsp : 수정페이지에 삭제버튼 추가
+//  삭제 함수
+public boolean removeById(int eno) {
+//        JPA 삭제 함수 : deleteById(기본키)
+//        1) 먼저 기본키가 테이블에 있으면 삭제, true 리턴
+//           없으면 false 리턴
+
+//        사용법 : JPA 레포지토리.exsistById*기본키)
+//           => 기본키가 테이블에 있는지 확인, 있으면 true / 없으면 false
+    if (empRepository.existsById(eno) == true) {
+        empRepository.deleteById(eno);
+        return true;
+    } else {
+        return false;
+    }
+}
 }

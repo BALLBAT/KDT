@@ -50,10 +50,21 @@
                     </a>
                     <%--                   소메뉴 --%>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/basic/emp">Emp</a></li>
-                        <li><a class="dropdown-item" href="/basic/emp/addition">Add Emp</a></li>
+                        <li><a class="dropdown-item" href="/basic/faq">Emp</a></li>
+                        <li><a class="dropdown-item" href="/basic/faq/addition">Add Emp</a></li>
                     </ul>
                 </li>
+                    <%--     FAQ #3    --%>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Faq(종합문제)
+                        </a>
+                        <%--                   소메뉴 --%>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/basic/faq">Faq</a></li>
+                            <li><a class="dropdown-item" href="/basic/faq/addition">Add Faq</a></li>
+                        </ul>
+                    </li>
             </ul>
         </div>
     </div>
