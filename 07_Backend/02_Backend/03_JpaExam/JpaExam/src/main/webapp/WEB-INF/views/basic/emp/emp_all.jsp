@@ -79,18 +79,15 @@
             </li>
             <%--       TODO: 반복문으로 실행 --%>
             <%--        사용법 : <c:forEach var="data" begin="시작값" end="끝값">반복문</c:forEach>--%>
-            <c:forEach var="data" begin="${startPage}" end="${endPage}">
-                <li class="page-item"><a class="page-link" href="/basic/emp?page=${data}&size=${3}">${data+1}</a></li>
-            </c:forEach>
-
+                <c:forEach var="data" begin="${startPage}" end="${endPage}">
+                    <li class="page-item"><a class="page-link" href="/basic/emp?page=${data}&size=${3}&ename=${ename}">${data+1}</a></li>
+                </c:forEach>
             <%--        다음 버튼 : 끝페이지가 전체페이지와 같으면 비활성화 아니면 활성화 --%>
             <li class="page-item ${(endPage+1==totalPages)? 'disabled' : ''}">
                 <a href="/basic/emp?page=${endPage+1}&size=${3}" class="page-link">다음</a>
             </li>
         </ul>
     </div>
-
-
     <%--        TODO: Add 버튼 --%>
     <div class="text-center">
         <a href="/basic/emp/addition" class="btn btn-primary">Add</a>
