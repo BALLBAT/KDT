@@ -23,10 +23,17 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface FileDbRepository extends JpaRepository<FileDb, String> {
-    // 제목(title) like 검색
+    // 제목(title) like 검색 : @Query()
+// TODO: soft delete : 삭제하기 않고 화면에만 안보이게 하는 것
+//       delete_yn = 'N' (조회시) => @Where() : JPA 사용(JPQL 만 적용)
+//                               => nativeQuery = true(오라쿨 sql 은 직접 작성)
     @Query(value = "SELECT * FROM TB_FILE_DB\n" +
-            "WHERE FILE_TITLE LIKE '%' || :fileTitle ||'%'", countQuery = "SELECT * FROM TB_FILE_DB\n" +
-            "WHERE FILE_TITLE LIKE '%' || :fileTitle ||'%'", nativeQuery = true)
+            "WHERE FILE_TITLE LIKE '%' || :fileTitle || '%'" +
+            "AND DELETE_YN = 'N'"
+            , countQuery = "SELECT * FROM TB_FILE_DB\n" +
+            "WHERE FILE_TITLE LIKE '%' || :fileTitle || '%'" +
+            "AND DELETE_YN = 'N'"
+            , nativeQuery = true)
     Page<FileDb> findAllByFileTitleContaining(
             @Param("fileTitle") String fileTitle,
             Pageable pageable
