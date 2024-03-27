@@ -1,7 +1,6 @@
 package org.example.jpaexam.controller.advanced;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.jpaexam.model.entity.advanced.FileDb;
 import org.example.jpaexam.model.entity.advanced.Gallery;
 import org.example.jpaexam.service.advanced.GalleryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.Optional;
+
 /**
  * packageName : org.example.jpaexam.controller.advanced
  * fileName : GalleryController
@@ -116,6 +118,41 @@ public class GalleryController {
 
 //    삭제 함수
 //    delete -> delete 방식 -> @DeleteMapping
-//    @DeleteMapping("/gallery/delete/{uuid}")
-//    public RedirectView delete
+@DeleteMapping("/gallery/delete/{uuid}")
+public RedirectView deleteGallery(
+        @PathVariable String uuid
+) {
+//        DB 서비스 삭제 함수 실행
+    galleryService.removeById(uuid);
+    return new RedirectView("/advanced/gallery");
+}
+    //          2) 수정버튼 클릭시 update 함수
+//    update -> put 방식 -> @PutMapping
+    @PutMapping("/gallery/edit/{uuid}")
+    public RedirectView updateGallery(
+            @PathVariable String uuid,
+            @RequestParam(defaultValue = "") String galleryTitle,
+            @RequestParam MultipartFile image
+    ) {
+        try {
+//            DB 수정 : save()
+            galleryService.save(uuid, galleryTitle, image);
+        } catch (Exception e) {
+            log.debug(e.getMessage());
+        }
+//        강제 이동
+        return new RedirectView("/advanced/gallery");
+    }
+    @GetMapping("/gallery/edition/{uuid}")
+    public String editGallery(
+            @PathVariable String uuid,
+            Model model
+    ) {
+//        1) 상세조회
+        Optional<Gallery> optionalGallery
+                = galleryService.findById(uuid);
+//        2) 결과 jsp 전달
+        model.addAttribute("gallery", optionalGallery.get());
+        return "advanced/gallery/update_gallery.jsp";
+    }
 }
